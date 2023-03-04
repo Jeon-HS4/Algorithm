@@ -1,0 +1,13 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120812
+
+def solution(array):
+    answer = 0
+    arr = [0 for _ in range(max(array)+1)]
+    for i in range(len(array)):
+        arr[array[i]] += 1
+    l = max(arr)
+    if(arr.count(l)>1):
+        answer = -1
+    else:
+        answer = arr.index(l)
+    return answer

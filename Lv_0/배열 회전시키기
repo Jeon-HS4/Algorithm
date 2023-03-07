@@ -1,0 +1,12 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120844
+
+def solution(numbers, direction):
+    answer = []
+    if(direction == "right"):
+        answer=numbers[:len(numbers)-1]
+        answer.insert(0,numbers[-1])
+    else:
+        answer=numbers[1:]
+        answer.append(numbers[0])
+        
+    return answer

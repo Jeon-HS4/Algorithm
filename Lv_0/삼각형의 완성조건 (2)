@@ -1,0 +1,10 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120868
+
+def solution(sides):
+    answer = 0
+    n = abs(sides[0]-sides[1])
+    
+    while(sum(sides)>n+1):
+        answer += 1
+        n += 1
+    return answer

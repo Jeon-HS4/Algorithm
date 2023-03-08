@@ -1,0 +1,30 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120863
+
+def solution(polynomial):
+    answer = ''
+    a=0
+    b=0
+    poly = polynomial.split(" + ")
+    
+    for i in range(len(poly)):
+        if("x" in poly[i]):
+            if(poly[i]=='x'):
+                a += 1
+            else:
+                a += int((poly[i])[:-1])
+        else:
+            b += int(poly[i])
+            
+    if(a==0):
+        answer = ("%d"%b)
+    elif(a==1):
+        if(b==0):
+            answer = "x"
+        else:
+            answer = ("x + %d"%b)
+    else:
+        if(b==0):
+            answer = ("%dx"%a)
+        else:
+            answer = ("%dx + %d"%(a,b))
+    return answer

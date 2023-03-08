@@ -1,0 +1,19 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120869
+
+def solution(spell, dic):
+    answer = 2
+    for i in range(len(dic)):
+        count = 0
+        if(len(dic[i])!=len(spell)):
+            continue
+        else:
+            for j in range(len(spell)):
+                if(spell[j] in dic[i]):
+                    count += 1
+            if(count == len(spell)):
+                answer = 1
+                break
+            else:
+                answer = 2
+        
+    return answer

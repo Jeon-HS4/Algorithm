@@ -1,0 +1,14 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120876
+
+def solution(lines):
+    answer = 0
+    left = min(lines[0][0], lines[1][0], lines[2][0])
+    right = max(lines[0][1], lines[1][1], lines[2][1])
+    distance = 0-left
+    line = [0 for _ in range(left,right+1)]
+    
+    for i in range(3):
+        for j in range(lines[i][0],lines[i][1]):
+            line[j+distance] += 1
+    answer = line.count(2) + line.count(3)
+    return answer

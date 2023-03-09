@@ -1,0 +1,23 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120880
+
+def solution(numlist, n):
+    answer = []
+    numlist.sort()
+    numLi = []
+    up=0
+    down=len(numlist)-1
+    
+    for i in range(len(numlist)):
+        numLi.append(numlist[i] - n)
+    
+    while(up != down):
+        if(abs(numLi[up]) >= abs(numLi[down])):
+            answer.append(numlist[up])
+            up += 1
+        else:
+            answer.append(numlist[down])
+            down -= 1
+    answer.append(numlist[down])
+    answer.reverse()
+        
+    return answer

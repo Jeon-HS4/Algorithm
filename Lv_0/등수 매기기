@@ -1,0 +1,28 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120882
+
+def solution(score):
+    answer = [0 for _ in range(len(score))]
+    scores = []
+    same = 0
+    
+    for i in range(len(score)):
+        scores.append(score[i][0] + score[i][1])
+
+    for j in range(len(score)):
+        if(scores.count(max(scores)) > 1):
+            if(same > 0):
+                answer[scores.index(max(scores))] = same
+            else:
+                answer[scores.index(max(scores))] = j+1
+            scores[scores.index(max(scores))] = -1
+            same = answer[answer.index(max(answer))]
+            
+        else:
+            if(same >0):
+                answer[scores.index(max(scores))] = same
+            else:
+                answer[scores.index(max(scores))] = j+1
+            scores[scores.index(max(scores))] = -1
+            same = 0
+
+    return answer

@@ -1,0 +1,38 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120894
+
+def solution(numbers):
+    answer = 0
+    num = 0
+    while(num < len(numbers)):
+        if(numbers[num:num+2] == "ze"):
+            answer = answer*10 + 0
+            num += 4
+        elif(numbers[num:num+2] == "on"):
+            answer = answer*10 + 1
+            num += 3
+        elif(numbers[num:num+2] == "tw"):
+            answer = answer*10 + 2
+            num += 3
+        elif(numbers[num:num+2] == "th"):
+            answer = answer*10 + 3
+            num += 5
+        elif(numbers[num:num+2] == "fo"):
+            answer = answer*10 + 4
+            num += 4
+        elif(numbers[num:num+2] == "fi"):
+            answer = answer*10 + 5
+            num += 4
+        elif(numbers[num:num+2] == "si"):
+            answer = answer*10 + 6
+            num += 3
+        elif(numbers[num:num+2] == "se"):
+            answer = answer*10 + 7
+            num += 5
+        elif(numbers[num:num+2] == "ei"):
+            answer = answer*10 + 8
+            num += 5
+        elif(numbers[num:num+2] == "ni"):
+            answer = answer*10 + 9
+            num += 4
+
+    return answer

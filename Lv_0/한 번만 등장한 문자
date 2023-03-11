@@ -1,0 +1,17 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120896
+
+def solution(s):
+    answer = ''
+    newword = []
+    usedword = []
+    for i in range(len(s)):
+        if(s[i] not in usedword):
+            newword.append(s[i])
+            usedword.append(s[i])
+        else:
+            if(s[i] in newword):
+                newword.remove(s[i])
+    newword.sort()
+    for j in range(len(newword)):
+        answer += newword[j]
+    return answer

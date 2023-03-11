@@ -1,0 +1,12 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120888
+
+def solution(my_string):
+    answer = ''
+    word = []
+    for i in range(len(my_string)):
+        if(my_string[i] in word):
+            continue
+        else:
+            word.append(my_string[i])
+            answer += my_string[i]
+    return answer

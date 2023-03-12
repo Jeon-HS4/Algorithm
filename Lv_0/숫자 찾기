@@ -1,0 +1,14 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120904
+
+def solution(num, k):
+    answer = -1
+    for i in range(7):
+        if(10**i > num):
+            place = i
+            break
+    while(num > 0):
+        if(num%10 == k):
+            answer = place
+        num = num//10
+        place -= 1
+    return answer

@@ -1,0 +1,12 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120923
+
+def solution(num, total):
+    answer = []
+    avg = total/num
+    if((avg*10)%10 == 0):
+        for i in range(num):
+            answer.append(avg-(num//2)+i)
+    else:
+        for i in range(num):
+            answer.append(int(avg)-(num//2)+i+1)
+    return answer

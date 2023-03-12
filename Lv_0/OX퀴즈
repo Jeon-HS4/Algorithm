@@ -1,0 +1,19 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120907
+
+def solution(quiz):
+    answer = []
+    question = []
+    for i in range(len(quiz)):
+        question = quiz[i].split()
+        if(question[1] == "-"):
+            if(int(question[0])-int(question[2]) == int(question[4])):
+                answer.append("O")
+            else:
+                answer.append("X")
+        elif(question[1] == "+"):
+            if(int(question[0])+int(question[2]) == int(question[4])):
+                answer.append("O")
+            else:
+                answer.append("X")
+
+    return answer

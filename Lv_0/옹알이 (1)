@@ -1,0 +1,13 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120956
+
+def solution(babbling):
+    answer = 0
+    babble = ["aya","ye","woo","ma"]
+    word = ""
+    for i in babbling:
+        word = i
+        for j in babble:
+            word = word.replace(j," ")
+        if(word.replace(" ","") == ""):
+            answer += 1
+    return answer

@@ -1,0 +1,12 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/12933
+
+def solution(n):
+    answer = 0
+    num = []
+    while(n>0):
+        num.append(n%10)
+        n = n//10
+    num.sort(reverse=True)
+    for i in num:
+        answer = answer*10 +i
+    return answer

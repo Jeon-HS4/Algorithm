@@ -1,0 +1,16 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/12917
+
+def solution(s):
+    answer = ''
+    large = []
+    small = []
+    for i in range(len(s)):
+        if(ord(s[i]) > 95):
+            small.append(s[i])
+        else:
+            large.append(s[i])
+    small.sort(reverse = True)
+    large.sort(reverse = True)
+    answer = ''.join(small) + ''.join(large)
+    
+    return answer

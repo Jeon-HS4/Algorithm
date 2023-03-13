@@ -1,0 +1,19 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/12926
+
+def solution(s, n):
+    answer = ''
+    for i in range(len(s)):
+        if(ord(s[i]) > 96):
+            if(ord(s[i])+n < 123):
+                answer += chr(ord(s[i]) + n)
+            else:
+                answer += chr(ord(s[i]) + n - 26)
+                
+        elif(ord(s[i]) > 64):
+            if(ord(s[i])+n < 91):
+                answer += chr(ord(s[i]) + n)
+            else:
+                answer += chr(ord(s[i]) + n - 26)
+        else:
+            answer += " "
+    return answer

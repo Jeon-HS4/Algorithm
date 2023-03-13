@@ -1,0 +1,10 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/12918
+
+def solution(s):
+    answer = False
+    if(len(s) in [4,6]):
+        for i in range(len(s)):
+            if(ord(s[i])>60):
+                return answer
+        answer = True
+    return answer

@@ -1,0 +1,51 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/17682
+
+def solution(dartResult):
+    answer = 0
+    length = 0
+    turn = 0
+    roundScore = [0,0,0]
+    
+    if(dartResult[-1] not in ["*","#"]):
+        dartResult+= " "
+    
+    while(length<len(dartResult)):
+        score = 0
+        bonus = ""
+        option = ""
+
+        if(dartResult[length+1]=="0"): # 10점일때
+            score = 10
+            bonus = dartResult[length+2]
+            if(dartResult[length+3].isdigit()):     # 옵션이 없는 경우
+                length += 3
+            else:
+                option = dartResult[length+3]
+                length += 4
+
+        else:
+            score = int(dartResult[length])
+            bonus = bonus = dartResult[length+1]
+            if(dartResult[length+2].isdigit()):     # 옵션이 없는 경우
+                length += 2
+            else:
+                option = dartResult[length+2]
+                length += 3 
+                
+        if(bonus == "D"):
+            score = score**2
+        elif(bonus == "T"):
+            score = score**3
+
+        if(option == "#"):
+            score *= -1
+        elif(option == "*"):
+            score *= 2
+            if(turn>0):
+                roundScore[turn-1] *= 2
+                
+        roundScore[turn] = score
+        turn += 1
+
+    answer = sum(roundScore)
+    return answer

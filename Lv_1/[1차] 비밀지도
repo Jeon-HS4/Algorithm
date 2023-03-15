@@ -1,0 +1,18 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/17681
+
+def solution(n, arr1, arr2):
+    answer = []
+    map1 = []
+    map2 = []
+    for i in range(n):
+        map1.append(bin(arr1[i])[2:])
+        map2.append(bin(arr2[i])[2:])
+    for j in range(n):
+        answerMap = []
+        for k in range(n):
+            if((int(map1[j])//(10**(n-k-1)))%10==0 and (int(map2[j])//(10**(n-k-1)))%10==0):
+                answerMap.append(" ")
+            else:
+                answerMap.append("#")
+        answer.append(''.join(answerMap))
+    return answer

@@ -1,0 +1,15 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/12947
+
+def solution(x):
+    answer = True
+    hashad = 0
+    a = x
+    while(x>0):
+        hashad += x%10
+        x = x//10
+        
+    if(a%hashad==0):
+        answer = True
+    else:
+        answer = False
+    return answer

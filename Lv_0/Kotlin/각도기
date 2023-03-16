@@ -1,0 +1,14 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/120829?language=kotlin
+
+class Solution {
+    fun solution(angle: Int): Int {
+        var answer: Int = 0
+        when(angle){
+            180->answer = 4
+            90-> answer = 2
+            in 0..89 -> answer = 1
+            in 91..179 -> answer = 3
+        }
+        return answer
+    }
+}

@@ -1,0 +1,36 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/42840
+
+def solution(answers):
+    answer = []
+    score = [0,0,0]
+    student1 = 0
+    student2 = 0
+    student3 = 0
+    num1 = [1,2,3,4,5]
+    num2 = [2,1,2,3,2,4,2,5]
+    num3 = [3,3,1,1,2,2,4,4,5,5]
+    for i in range(len(answers)):
+        if(answers[i] == num1[student1]):
+            score[0] += 1
+        if(answers[i] == num2[student2]):
+            score[1] += 1
+        if(answers[i] == num3[student3]):
+            score[2] += 1
+        if(student1+1 == 5):
+            student1 = 0
+        else:
+            student1 += 1
+        if(student2+1 == 8):
+            student2 = 0
+        else:
+            student2 += 1
+        if(student3+1 == 10):
+            student3 = 0
+        else:
+            student3 += 1
+    
+    for j in range(len(score)):
+        if(score[j] == max(score)):
+            answer.append(j+1)
+    answer.sort()
+    return answer

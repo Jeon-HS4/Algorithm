@@ -1,0 +1,5 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/131535
+
+SELECT count(*) 
+from USER_INFO
+where JOINED between '2021-01-01' and '2021-12-31' AND AGE between 20 and 29

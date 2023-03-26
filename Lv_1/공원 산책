@@ -1,0 +1,55 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/172928
+
+def solution(park, routes):
+    answer = []
+    start = [0,0]
+    for a in range(len(park)):
+        if('S' in park[a]):
+            start = [a,park[a].index('S')]
+
+    
+    for i in range(len(routes)):
+        route = [routes[i][0],int(routes[i][2])]
+        mov = 1
+        print(start)
+        if(route[0] == 'N'):
+            if(start[0] - route[1] < 0):
+                continue    
+            for a in range(start[0],start[0]-route[1]-1,-1):
+                if(park[a][start[1]] == "X"):
+                    mov = 0
+                    break
+            if(mov == 1):
+                start[0] = start[0]-route[1]
+                   
+        elif(route[0] == 'S'):
+            if(start[0] + route[1] >= len(park)):
+                continue    
+            for a in range(start[0],start[0]+route[1]+1):
+                if(park[a][start[1]] == "X"):
+                    mov = 0
+                    break
+            if(mov == 1):
+                start[0] = start[0]+route[1]
+            
+        elif(route[0] == 'W'):
+            if(start[1] - route[1] < 0):
+                continue    
+            for a in range(start[1],start[1]-route[1]-1,-1):
+                if(park[start[0]][a] == "X"):
+                    mov = 0
+                    break
+            if(mov == 1):
+                start[1] = start[1]-route[1]
+            
+        elif(route[0] == 'E'):
+            if(start[1] + route[1] >= len(park[0])):
+                continue    
+            for a in range(start[1],start[1]+route[1]+1):
+                if(park[start[0]][a] == "X"):
+                    mov = 0
+                    break
+            if(mov == 1):
+                start[1] = start[1]+route[1]
+    answer = start
+    return answer

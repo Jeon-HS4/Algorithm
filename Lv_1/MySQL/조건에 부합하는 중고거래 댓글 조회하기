@@ -1,0 +1,7 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/164673
+
+SELECT Title, A.BOARD_ID, REPLY_ID, B.WRITER_ID, B.CONTENTS, date_format(B.CREATED_DATE,'%Y-%m-%d')
+from USED_GOODS_BOARD A
+inner join USED_GOODS_REPLY B On A.BOARD_ID = B.BOARD_ID
+where A.CREATED_DATE between '2022-10-01 00:00:00' and '2022-10-31 23:59:59'
+order by 6 asc, 1 asc

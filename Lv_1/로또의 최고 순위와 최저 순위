@@ -1,0 +1,18 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/77484#fn1
+
+def solution(lottos, win_nums):
+    answer = []
+    win = 0
+    miss = 0
+    for i in lottos:
+        if(i == 0):
+            miss += 1
+        elif(i in win_nums):
+            win += 1
+    answer.append(7-(win+miss))
+    answer.append(7-(win))
+    if(answer[1] == 7):
+        answer[1] = 6
+    if(answer[0] == 7):
+        answer[0] = 6
+    return answer

@@ -1,0 +1,10 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/134240
+
+def solution(food):
+    answer = ''
+    for i in range(len(food)):
+        answer += ('%d'%i)*(food[i]//2)
+    answer += '0'
+    for j in range(len(food)-1,-1,-1):
+        answer += ('%d'%j)*(food[j]//2)
+    return answer

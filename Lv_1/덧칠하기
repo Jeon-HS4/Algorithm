@@ -1,0 +1,17 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/161989
+
+def solution(n, m, section):
+    answer = 0
+    paint = section[0]-1
+    
+    while(1):
+       #print("현재 %d구역까지 칠해졌고, %d회 칠해짐"%(paint,answer))
+        if(section[-1] <= paint):
+            break;
+        for i in range(answer,len(section)):
+            if(paint < section[i]):
+                break;
+        paint = section[i] + m-1
+        answer += 1
+    
+    return answer

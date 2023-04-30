@@ -1,0 +1,6 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/133025
+
+SELECT FLAVOR
+FROM FIRST_HALF NATURAL JOIN ICECREAM_INFO
+WHERE total_order >=3000 and INGREDIENT_TYPE = "fruit_based"
+ORDER BY total_order desc

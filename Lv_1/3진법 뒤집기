@@ -1,0 +1,18 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/68935
+
+def solution(n):
+    answer = 0
+    n3 = ""
+    for i in range(16,-1,-1):
+        if(n >= (3**i)*2):
+            n -= (3**i)*2
+            n3 += "2"
+        elif(n >= (3**i)):
+            n -= (3**i)
+            n3 += "1"
+        else:
+            n3 += "0"
+    n3 = str(int(n3))
+    for j in range(len(n3)):
+        answer += int(n3[j])*(3**j)
+    return answer

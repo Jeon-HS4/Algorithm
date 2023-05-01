@@ -1,0 +1,24 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/131128
+
+def solution(X, Y):
+    answer = ''
+    xlist = [0,0,0,0,0,0,0,0,0,0]
+    ylist = [0,0,0,0,0,0,0,0,0,0]
+    x = list(X)
+    y = list(Y)
+    
+    for i in range(len(x)):
+        xlist[int(x[i])] += 1
+    for j in range(len(y)):
+        ylist[int(y[j])] += 1
+    
+    
+    for k in range(9,-1,-1):
+        for l in range(xlist[k] if xlist[k]<ylist[k] else ylist[k]):
+            answer += str(k)
+    
+    if(answer == ''):
+        answer = '-1'
+    elif(answer[0] == "0"):
+        answer = "0"
+    return answer

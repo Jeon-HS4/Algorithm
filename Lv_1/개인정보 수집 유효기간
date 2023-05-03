@@ -1,0 +1,22 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/150370
+
+def solution(today, terms, privacies):
+    answer = []
+    term = {i.split(" ")[0] : i.split(" ")[1] for i in terms}
+    date = 0
+    today = today[:4]+today[5:7]+today[8:10]
+    
+    # 약관에 따른 기간만큼 수집일자의 기간 더하기
+    for i in range(len(privacies)):
+        month = int(privacies[i][5:7]) + int(term[privacies[i][-1]])
+        year = int(privacies[i][:4])
+        
+        while(month > 12):
+            year += 1
+            month -= 12
+        date = str(year) + (str(month) if month>9 else "0"+str(month)) + privacies[i][8:10]
+
+        if(today >= date):
+            answer.append(i+1)
+        
+    return answer

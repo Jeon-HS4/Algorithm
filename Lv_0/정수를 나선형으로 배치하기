@@ -1,0 +1,50 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/181832
+
+def solution(n):
+    answer = [[0 for i in range(n)] for j in range(n)]
+    x = 0
+    y = 0
+    # direct 1,2,3,4 = 동, 남, 서, 북
+    direct = 1
+    
+    for i in range(1, (n*n)+1):
+        ab = 0
+        while(ab<10):
+            ab += 1
+            if(direct == 1):
+                if((y<n) and (answer[x][y] == 0)):
+                    answer[x][y] = i
+                    y += 1
+                    break
+                else:
+                    y -= 1
+                    x += 1
+                    direct = 2
+            elif(direct == 2):
+                if((x<n) and (answer[x][y] == 0)):
+                    answer[x][y] = i
+                    x += 1
+                    break
+                else:
+                    x -= 1
+                    y -= 1
+                    direct = 3
+            elif(direct == 3):
+                if((y>=0) and (answer[x][y] == 0)):
+                    answer[x][y] = i
+                    y -= 1
+                    break
+                else:
+                    y += 1
+                    x -= 1
+                    direct = 4
+            elif(direct == 4):
+                if((x>=0) and (answer[x][y] == 0)):
+                    answer[x][y] = i
+                    x -= 1
+                    break
+                else:
+                    x += 1
+                    y += 1
+                    direct = 1
+    return answer

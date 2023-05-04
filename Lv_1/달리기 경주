@@ -1,0 +1,17 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/178871
+
+def solution(players, callings):
+    answer = []
+    player = {k : i for i, k in enumerate(players)} # 이름 : 순위
+    playerR = {i : k for i, k in enumerate(players)}  # 순위 : 이름
+    
+    for i in callings:
+        player[playerR[player[i]-1]] += 1
+        player[i] -= 1
+        
+        playerR[player[i]+1] = playerR[player[i]]
+        playerR[player[i]] = i
+        
+    for i in range(len(player)):
+        answer.append(playerR[player[playerR[i]]])
+    return answer

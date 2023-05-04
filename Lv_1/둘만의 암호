@@ -1,0 +1,18 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/155652
+
+def solution(s, skip, index):
+    answer = ''
+    word = list("abcdefghijklmnopqrstuvwxyz")
+    for i in range(len(skip)):
+        word.remove(skip[i])
+    
+    for j in range(len(s)):
+        if((word.index(s[j]) + index) >= len(word)):
+            if((word.index(s[j]) + index) >= len(word)):
+                answer = answer + (word[word.index(s[j])+index-len(word)-len(word)])
+            else:
+                answer = answer + (word[word.index(s[j])+index-len(word)])
+        else:
+            answer = answer + (word[word.index(s[j])+index])
+
+    return answer

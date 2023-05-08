@@ -1,0 +1,46 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/72410
+
+import re
+
+def solution(new_id):
+    
+    # 1단계 : 모든 대문자를 소문자로 치환
+    new_id = new_id.lower()
+    
+    # 2단계 : 특수문자를 모두 제거 : 정규표현식
+    new_id = re.sub(r"[^a-z0-9-_.]", "", new_id)
+    
+    # 3단계 : 마침표 연속 사용 시 하나로 치환
+    list_new_id = list(new_id)
+    for i in range(len(list_new_id)-1,0,-1):
+        if(list_new_id[i] == '.' and list_new_id[i-1] == '.'):
+            del list_new_id[i]
+    
+    new_id = ''.join(s for s in list_new_id)
+    
+    # 4단계 : 마침표가 처음이나 끝이면 제거
+    if(new_id[0] == '.'):
+        new_id = new_id[1:]
+        if(new_id == ""):
+            return "aaa"
+    if(new_id[-1] == '.'):
+        new_id = new_id[:-1]
+    
+    # 5단계 : 빈 문자열이면 new_id에 a를 대입
+    if(new_id == ""):
+        return "aaa"
+    
+    # 6단계 : 16자 이상이라면 처음 15개의 문자, 15번째가 마침표면 14개만
+    if(len(new_id) > 15):
+        new_id = new_id[:15]
+    if(new_id[-1] == '.'):
+        new_id = new_id[:-1]
+    
+    
+    # 7단계 : 2자 이하라면 마지막 문자를 길이가 3이 될때까지 반복
+    if(len(new_id) == 2):
+        new_id += new_id[1]
+    elif(len(new_id) == 1):
+        new_id += new_id[0] + new_id[0]
+    
+    return new_id

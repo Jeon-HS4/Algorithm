@@ -1,0 +1,13 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/132267
+
+def solution(a, b, n):
+    answer = 0
+    plus = 0
+    while(1):
+        plus = (n//a)*b # 추가로 받는 병
+        if(plus == 0):
+            break
+        answer += plus
+        n -= (n//a)*a
+        n += plus
+    return answer

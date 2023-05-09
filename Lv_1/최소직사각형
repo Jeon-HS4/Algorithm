@@ -1,0 +1,25 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/86491
+
+def solution(sizes):
+    answer = 0
+    w = sizes[0][0]
+    h = sizes[0][1]
+    wtmp = 0
+    wtmp2 = 0    
+    htmp = 0
+    htmp2 = 0
+    for i in range(len(sizes)):
+        wtmp = w if w > sizes[i][0] else sizes[i][0]
+        wtmp2 = w if w > sizes[i][1] else sizes[i][1]
+        htmp = h if h > sizes[i][1] else sizes[i][1]
+        htmp2 = h if h > sizes[i][0] else sizes[i][0]
+        
+        if(wtmp*htmp < wtmp2*htmp2):
+            w = wtmp
+            h = htmp
+            answer = wtmp*htmp
+        else:
+            w = wtmp2
+            h = htmp2
+            answer = wtmp2*htmp2
+    return answer

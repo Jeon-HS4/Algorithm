@@ -1,0 +1,46 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/67256
+
+def solution(numbers, hand):
+    answer = ''
+    r = 12
+    l = 10
+    if(hand == "right"):
+        for i in range(len(numbers)):
+            if(numbers[i] in [1,4,7]):
+                answer += "L"
+                l = numbers[i]
+            elif(numbers[i] in [3,6,9]):
+                answer += "R"
+                r = numbers[i]
+            else:
+                if(numbers[i] == 0):
+                    numbers[i] = 11
+                left = abs(numbers[i]-l)//3 + abs(numbers[i]-l)%3
+                right = abs(numbers[i]-r)//3 + abs(numbers[i]-r)%3
+                if(left < right):
+                    answer += "L"
+                    l = numbers[i]
+                else:
+                    answer += "R"
+                    r = numbers[i]
+    else:
+        for i in range(len(numbers)):
+            if(numbers[i] in [1,4,7]):
+                answer += "L"
+                l = numbers[i]
+            elif(numbers[i] in [3,6,9]):
+                answer += "R"
+                r = numbers[i]
+            else:
+                if(numbers[i] == 0):
+                    numbers[i] = 11
+                left = abs(numbers[i]-l)//3 + abs(numbers[i]-l)%3
+                right = abs(numbers[i]-r)//3 + abs(numbers[i]-r)%3
+                if(left <= right):
+                    answer += "L"
+                    l = numbers[i]
+                else:
+                    answer += "R"
+                    r = numbers[i]
+
+    return answer

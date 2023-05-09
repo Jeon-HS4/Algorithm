@@ -1,0 +1,22 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/138477
+
+def solution(k, score):
+    answer = []
+    board = []
+    
+    if(k >= len(score)):
+        k = len(score)
+    
+    for i in range(k):
+        board.append(score[i])
+        board.sort()
+        answer.append(board[0])
+
+    for j in range(k,len(score)):
+        if(score[j] > board[0]):
+            board.append(score[j])
+            board.remove(board[0])
+            board.sort()
+        answer.append(board[0])
+    
+    return answer

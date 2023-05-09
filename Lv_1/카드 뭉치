@@ -1,0 +1,14 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/159994
+
+def solution(cards1, cards2, goal):
+    answer = "Yes"
+    cards1.append("")
+    cards2.append("")
+    for i in range(len(goal)):
+        if(goal[i] == cards1[0]):
+            del cards1[0]
+        elif(goal[i] == cards2[0]):
+            del cards2[0]
+        else:
+            return "No"
+    return answer

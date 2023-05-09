@@ -1,0 +1,16 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/133499
+
+def solution(babbling):
+    answer = 0
+    words = ["aya", "ye", "woo", "ma"]
+    for i in range(len(babbling)):
+        babble = babbling[i]
+        for j in range(len(words)):
+            babble = babble.replace(words[j],"!")
+            if(babble.find("!!") != -1):
+                break
+            babble = babble.replace("!",".")
+            if(babble.replace(".","") == ""):
+                answer += 1
+                break
+    return answer

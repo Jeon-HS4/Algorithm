@@ -1,0 +1,24 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/181916
+
+def solution(a, b, c, d):
+    answer = 0
+    dice = [a,b,c,d]
+    sortdice = list(set(dice))
+    if(len(sortdice) == 4):
+        answer = min(dice)
+    elif(len(sortdice) == 3):
+        answer = a*b*c*d
+        for i in dice:
+            if(dice.count(i) == 2):
+                answer /= i*i
+                break
+    elif(len(sortdice) == 2):
+        if(dice.count(sortdice[0]) == 2):
+            answer = (sortdice[0] + sortdice[1]) * abs(sortdice[0]-sortdice[1])
+        elif(dice.count(sortdice[0]) == 1):
+            answer = (10 * sortdice[1] + sortdice[0])**2
+        else:
+            answer = (10 * sortdice[0] + sortdice[1])**2
+    else:
+        answer = 1111*sortdice[0]
+    return answer

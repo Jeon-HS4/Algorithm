@@ -1,0 +1,20 @@
+# 24시간 동안 한시간 단위로 일을 할 수 있다.
+# 일을 할 경우 피로도가 a 만큼 쌓이며 b만큼 일을 할 수 있다.
+# 쉴 경우, 피로도가 c만큼 회복된다.
+# 피로도가 m을 넘어가면 번아웃이 와서 이미 했던 일도 다 날려먹게 된다.
+
+a, b, c, m = map(int, input().split())
+
+work = 0
+tired = 0
+
+for i in range(24):  # 24시간동안 반복
+  if(tired + a > m):  # 일을 했을때 번아웃이 올 경우에는 휴식
+    tired -= c
+    if(tired < 0):  # 피로도가 음수가 되면 0으로 설정
+        tired = 0
+  else:  # 일을 해도 괜찮으면 작업을 시킴
+    tired += a
+    work += b
+
+print(work)

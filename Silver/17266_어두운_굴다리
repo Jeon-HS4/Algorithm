@@ -1,0 +1,19 @@
+n = int(input())
+m = int(input())
+x = list(map(int, input().split()))
+
+x.append(n)
+height = x[0]
+
+for i in range(1, len(x)):
+    if (x[i-1] + height * 2 < x[i]):
+        height = (x[i] - x[i-1]) / 2
+        if (height != int(height)):
+            height = int(height) + 1
+        else:
+            height = int(height)
+
+        if (i == len(x) - 1):
+            height = x[i] - x[i-1]
+
+print(height)

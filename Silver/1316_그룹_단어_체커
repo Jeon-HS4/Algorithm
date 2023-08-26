@@ -1,0 +1,11 @@
+N = int(input())
+count = 0
+for i in range(N):
+    c=0
+    n = input()
+    for j in set(n):
+        if (j * (n.count(j)) not in n):
+            c += 1
+    if(c == 0):
+        count += 1
+print(count)

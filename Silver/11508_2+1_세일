@@ -1,0 +1,16 @@
+n = int(input())
+
+products = []
+price = 0
+
+for _ in range(n):
+    temp = int(input())
+    products.append(temp)
+    price += temp
+
+products.sort(reverse=True)
+
+for i in range(2,n,3):
+    price -= products[i]
+
+print(price)

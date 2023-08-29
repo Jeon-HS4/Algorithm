@@ -1,0 +1,35 @@
+password = input()
+
+while(password != "end"):
+    vowel = ["a","e","i","o","u"]
+    lastword = ""
+    duplicate = [0,0]
+    isVowel = False
+    isAcceptable = True
+
+    for i in range(len(password)):
+        if(password[i] in vowel):
+            isVowel = True
+
+        if(duplicate[0] == duplicate[1]):
+            if(password[i] in vowel):
+                if(duplicate[0] == 1):
+                    isAcceptable = False
+                    break
+            else:
+                if(duplicate[0] == 2):
+                    isAcceptable = False
+                    break
+
+        if((password[i] == lastword) and (lastword not in ["e","o"])):
+            isAcceptable = False
+            break
+        
+        duplicate[0], duplicate[1] = duplicate[1], 1 if password[i] in vowel else 2
+        lastword = password[i]
+
+    if(isAcceptable and isVowel):
+        print(f"<{password}> is acceptable.")
+    else:
+        print(f"<{password}> is not acceptable.")
+    password = input()

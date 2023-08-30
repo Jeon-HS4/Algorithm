@@ -1,0 +1,11 @@
+n, k = map(int, input().split())
+
+circle = list(range(1, n + 1))
+index = 0
+result = []
+
+while len(circle) > 0:
+    index = (index + k - 1) % len(circle)
+    result.append(circle.pop(index))
+    
+print("<" + ", ".join(map(str, result)) + ">")

@@ -1,0 +1,5 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/131529
+
+SELECT substr(product_code,1,2), COUNT(SUBSTR(PRODUCT_CODE, 1,2))
+FROM PRODUCT
+GROUP BY SUBSTR(PRODUCT_CODE, 1,2)
